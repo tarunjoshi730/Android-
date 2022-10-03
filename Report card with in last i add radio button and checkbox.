@@ -1,0 +1,1049 @@
+package com.example.reportcard;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    TextView mytextview1,mytextview2,mytextview3,mytextview4,mytextview5,mytextview6,mytextview7,mytextview8,mytextview9,mytextview10;
+    EditText myedittext1,myedittext2,myedittext3,myedittext4;
+    Button mybutton;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mytextview1 = findViewById(R.id.textView2);
+        mytextview2 = findViewById(R.id.textView3);
+        mytextview3 = findViewById(R.id.textView4);
+        mytextview4 = findViewById(R.id.textView5);
+        mytextview5 = findViewById(R.id.textView);
+        mytextview6 = findViewById(R.id.textView11);
+        mytextview7 = findViewById(R.id.textView6);
+        mytextview8 = findViewById(R.id.textView8);
+        mytextview9 = findViewById(R.id.textView9);
+        mytextview10 = findViewById(R.id.textView10);
+        myedittext1 = findViewById(R.id.editTextNumber);
+        myedittext2 = findViewById(R.id.editTextNumber2);
+        myedittext3 = findViewById(R.id.editTextNumber3);
+        myedittext4 = findViewById(R.id.editTextNumber4);
+        mybutton = findViewById(R.id.button);
+        mybutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                float f = Float.parseFloat(myedittext1.getText().toString());
+                if(f>90){
+                    mytextview7.setText("A");
+                }
+                else if(f>80)
+                {
+                    mytextview7.setText("B");
+                }
+                else if(f>70)
+                {
+                    mytextview7.setText("C");
+                }
+                else if(f>60)
+                {
+                    mytextview7.setText("D");
+                }
+                else
+                {
+                    mytextview7.setText("E");
+                }
+                float f1 = Float.parseFloat(myedittext2.getText().toString());
+                if(f1>90){
+                    mytextview8.setText("A");
+                }
+                else if(f1>80)
+                {
+                    mytextview8.setText("B");
+                }
+                else if(f1>70)
+                {
+                    mytextview8.setText("C");
+                }
+                else if(f1>60)
+                {
+                    mytextview8.setText("D");
+                }
+                else
+                {
+                    mytextview8.setText("E");
+                }
+                float f2 = Float.parseFloat(myedittext3.getText().toString());
+                if(f2>90){
+                    mytextview9.setText("A");
+                }
+                else if(f2>80)
+                {
+                    mytextview9.setText("B");
+                }
+                else if(f2>70)
+                {
+                    mytextview9.setText("C");
+                }
+                else if(f2>60)
+                {
+                    mytextview9.setText("D");
+                }
+                else
+                {
+                    mytextview9.setText("E");
+                }
+                float f3 = Float.parseFloat(myedittext4.getText().toString());
+                if(f3>90){
+                    mytextview10.setText("A");
+                }
+                else if(f3>80)
+                {
+                    mytextview10.setText("B");
+                }
+                else if(f3>70)
+                {
+                    mytextview10.setText("C");
+                }
+                else if(f3>60)
+                {
+                    mytextview10.setText("D");
+                }
+                else
+                {
+                    mytextview10.setText("E");
+                }
+                float total = f+f1+f2+f3;
+                if( f>35 && f1>35 && f2>35 && f3>35) {
+                    int pass;
+                    mytextview5.setText("            PASS\n MARKS GOT =" + total );
+                }
+                else
+                {
+                    int fail;
+                    mytextview5.setText("            FAIL\n MARKS GOT =" + total );
+
+                }
+              mytextview6.setText("MARKS GOT +" +total+" OUT 400");
+            }
+        });
+
+
+
+    }
+}   
+      
+      
+                                                                XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DBC1DF"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="218dp"
+        android:layout_height="59dp"
+        android:background="#F44109"
+        android:paddingTop="15dp"
+        android:text="        RESULT"
+        android:textSize="29sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.764" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="129dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="  Enter Marks"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.604"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <EditText
+        android:id="@+id/editTextNumber2"
+        android:layout_width="120dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:hint=" Enter marks"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
+
+    <EditText
+        android:id="@+id/editTextNumber3"
+        android:layout_width="118dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:hint="   Enter marks"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.223" />
+
+    <EditText
+        android:id="@+id/editTextNumber4"
+        android:layout_width="111dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:hint="  Enter marks"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="109dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:text="    Math"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="109dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:text="     Hindi"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="109dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:text="    Science"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.288" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="109dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:text="  Computer"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.371" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="173dp"
+        android:layout_height="63dp"
+        android:background="#100C0C"
+        android:backgroundTint="#141515"
+        android:hapticFeedbackEnabled="false"
+        android:text="    Total"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.628" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="55dp"
+        android:layout_height="30dp"
+        android:text="Grade"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.143" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="56dp"
+        android:layout_height="31dp"
+        android:text="Grade"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="56dp"
+        android:layout_height="24dp"
+        android:text="Grade"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="67dp"
+        android:layout_height="25dp"
+        android:text="Grade"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.389" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="287dp"
+        android:layout_height="79dp"
+        android:paddingTop="10dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="222dp"
+        android:layout_height="47dp"
+        android:background="#AB97E8"
+        android:paddingStart="30dp"
+        android:paddingTop="10dp"
+        android:text="REPORT CARD"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PERCENTAGE"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.221"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+        android:text="."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+Name    :-  Tarun Joshi
+Course  :- BCA
+Subject :- Android Studio
+Std id    :- 20041199
+Roll no  :- 2092049
+
+                                                                  Practical-3
+
+Objective:  Implementation of radio button and checkbox in android program
+
+
+                                                                     XML CODE:
+                                                                     
+                                                                     
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:textAlignment="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="422dp"
+        android:layout_height="46dp"
+        android:background="#2215D3"
+        android:fontFamily="serif"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:text="REPORT CARD"
+        android:textAlignment="center"
+        android:textColor="#CAB922"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="214dp"
+        android:layout_height="27dp"
+        android:background="#2FFFFFFF"
+        android:fontFamily="sans-serif-smallcaps"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:text="SELECT CLASS"
+        android:textAlignment="center"
+        android:textColor="#CAB922"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="214dp"
+        android:layout_height="27dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-smallcaps"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:text="ENTER MARKS"
+        android:textAlignment="center"
+        android:textColor="#CAB922"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="303dp"
+        android:layout_height="35dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-smallcaps"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:text="select choice to display"
+        android:textAlignment="center"
+        android:textColor="#CAB922"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="125dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="english"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="125dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Hindi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="125dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Maths"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="125dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:paddingStart="10dp"
+        android:paddingBottom="10dp"
+        android:text="science"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="125dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:text="social science"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="125dp"
+        android:layout_height="27dp"
+        android:background="#FFFFFF"
+        android:paddingStart="10dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="result"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="125dp"
+        android:layout_height="27dp"
+        android:background="#FAFAFB"
+        android:paddingStart="7dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="total"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="125dp"
+        android:layout_height="27dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="125dp"
+        android:layout_height="27dp"
+        android:background="#FCFCFC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.011" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="125dp"
+        android:layout_height="27dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="125dp"
+        android:layout_height="27dp"
+        android:background="#FFFFFF"
+        android:paddingStart="10dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="percentage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.011" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="215dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:ems="1"
+        android:hint="out of 100"
+        android:inputType="numberDecimal"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="215dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="out of 100"
+        android:inputType="numberDecimal"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="215dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="out of 100"
+        android:inputType="numberDecimal"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="215dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="out of 100"
+        android:inputType="numberDecimal"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName6"
+        android:layout_width="215dp"
+        android:layout_height="39dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="out of 100"
+        android:inputType="numberDecimal"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btn1"
+        android:text="SUBMIT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="197dp"
+        android:layout_height="71dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.654"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="140dp"
+            android:layout_height="35dp"
+
+            android:background="#FFFFFF"
+            android:text="class 10" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="140dp"
+            android:layout_height="35dp"
+
+            android:background="@color/white"
+            android:text="class 12" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="149dp"
+        android:layout_height="27dp"
+
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="115dp"
+        android:layout_height="59dp"
+        android:text="total"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="115dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="12dp"
+        android:text="percentage "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="115dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="4dp"
+        android:text="result"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+                                                                          JAVA CODE:
+                                                                          
+                                                                          
+package com.example.reportcard;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    public void btn1(View s1)
+    {
+        TextView t1 = findViewById(R.id.textView13);
+        TextView t2 = findViewById(R.id.textView14);
+        TextView t3= findViewById(R.id.textView15);
+        TextView t4= findViewById(R.id.textView);
+
+        EditText e1 = findViewById(R.id.editTextTextPersonName2);
+        EditText e2 = findViewById(R.id.editTextTextPersonName3);
+        EditText e3 = findViewById(R.id.editTextTextPersonName4);
+        EditText e4 = findViewById(R.id.editTextTextPersonName5);
+        EditText e5 = findViewById(R.id.editTextTextPersonName6);
+
+        String s = e1.getText().toString();
+        String s5 = e2.getText().toString();
+        String s2 = e3.getText().toString();
+        String s3 = e4.getText().toString();
+        String s4 = e5.getText().toString();
+
+        int sub1 = Integer.parseInt(s);
+        int sub2 = Integer.parseInt(s5);
+        int sub3 = Integer.parseInt(s2);
+        int sub4 = Integer.parseInt(s3);
+        int sub5 = Integer.parseInt(s4);
+        double total = sub1+sub2+sub3+sub4+sub5;
+
+
+        double percentage = (sub1+sub2+sub3+sub4+sub5)*100/500;
+
+         RadioButton r1 =(RadioButton) findViewById(R.id.radioButton3);
+         RadioButton r2 =(RadioButton) findViewById(R.id.radioButton4);
+        if (r1.isChecked())
+        {
+            t4.setText("class 10");
+
+        }
+        else if(r2.isChecked())
+        {
+            t4.setText("class 12");
+        }
+
+        CheckBox c = (CheckBox) findViewById(R.id.checkBox);
+        CheckBox c2 = (CheckBox) findViewById(R.id.checkBox2);
+        CheckBox c3 = (CheckBox) findViewById(R.id.checkBox3);
+        if(c.isChecked()) {
+            t1.setText("" + total);
+        }
+
+        if(c2.isChecked()) {
+            t2.setText("" +percentage );
+        }
+        if(c3.isChecked()) {
+            if (percentage>60)
+            {
+                t3.setText("first division");
+            }
+            else if (percentage>45)
+            {
+                t3.setText("second division");
+            }
+            else if (percentage>33)
+            {
+                t3.setText("third division");
+            }
+            else
+            {
+                t3.setText("Fail");
+            }
+
+            if (sub1<33)
+            {
+                t3.setText("fail");
+            }
+            if (sub2<33)
+            {
+                t3.setText("fail");
+            }
+            if (sub3<33)
+            {
+                t3.setText("fail");
+            }
+            if (sub4<33)
+            {
+                t3.setText("fail");
+            }
+            if (sub5<33)
+            {
+                t3.setText("fail");
+            }
+        }
+        if(sub1>100)
+        {
+            Context c1 = getApplicationContext();
+            CharSequence txt = "invalid marks";
+            int dur = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(c1, txt, dur);
+            toast.show();
+            t3.setText("invalid marks");
+            t2.setText("invalid marks");
+            t1.setText("invalid marks");
+        }
+
+        if(sub2>100)
+        {
+            Context c1 = getApplicationContext();
+            CharSequence txt = "invalid marks";
+            int dur = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(c1, txt, dur);
+            toast.show();
+            t3.setText("invalid marks");
+            t2.setText("invalid marks");
+            t1.setText("invalid marks");
+        }
+
+        if(sub3>100)
+        {
+            Context c1 = getApplicationContext();
+            CharSequence txt = "invalid marks";
+            int dur = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(c1, txt, dur);
+            toast.show();
+            t3.setText("invalid marks");
+            t2.setText("invalid marks");
+            t1.setText("invalid marks");
+        }
+
+        if(sub4>100)
+        {
+            Context c1 = getApplicationContext();
+            CharSequence txt = "invalid marks";
+            int dur = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(c1, txt, dur);
+            toast.show();
+            t3.setText("invalid marks");
+            t2.setText("invalid marks");
+            t1.setText("invalid marks");
+        }
+        if(sub5>100)
+        {
+            Context c1 = getApplicationContext();
+            CharSequence txt = "invalid marks";
+            int dur = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(c1, txt, dur);
+            toast.show();
+            t3.setText("invalid marks");
+            t2.setText("invalid marks");
+            t1.setText("invalid marks");
+        }
+        Context context = getApplicationContext();
+        CharSequence text = t3.getText().toString();
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+    }
+
+}
+                                                                                 OUTPUT:- 
+                                                                                 
+                                                                                 
